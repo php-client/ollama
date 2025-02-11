@@ -1,18 +1,20 @@
 {
     "name": "php-client/ollama",
+    "description": "PHP Client for Ollama API",
     "type": "library",
+    "license": "MIT",
     "require": {
-        "php": "^8.4",
+        "php": "^8.3",
         "saloonphp/saloon": "^3.10"
     },
     "require-dev": {
-        "vlucas/phpdotenv": "^5.6",
-        "symfony/var-dumper": "^7.2"
+        "symfony/var-dumper": "^7.2",
+        "vlucas/phpdotenv": "^5.6"
     },
-    "license": "MIT",
     "autoload": {
         "psr-4": {
             "PhpClient\\Ollama\\": "src/"
         }
-    }
+    },
+    "minimum-stability": "stable"
 }

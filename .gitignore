@@ -2,3 +2,4 @@
 /references/
 /debug/
 /.env
+composer.lock
