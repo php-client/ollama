@@ -63,6 +63,10 @@ final class CreateModelRequest extends Request implements HasBody
 
     protected function defaultBody(): array
     {
+        $chatMessages = $this->messages instanceof ChatMessages
+            ? $this->messages
+            : new ChatMessages(messages: $this->messages);
+
         return array_filter(
             array: [
                 'model' => $this->model,
@@ -75,9 +79,7 @@ final class CreateModelRequest extends Request implements HasBody
                 'parameters' => $this->parameters instanceof ModelParameters
                     ? $this->parameters->toArray()
                     : $this->parameters,
-                'messages' => !$this->messages instanceof ChatMessages
-                    ? (new ChatMessages(messages: $this->messages))->toArray()
-                    : $this->messages,
+                'messages' => $chatMessages->toArray(),
                 'stream' => $this->stream,
                 'quantize' => $this->quantize instanceof QuantizationType
                     ? $this->quantize->value
