@@ -1,6 +1,7 @@
 {
     "name": "php-client/ollama",
     "description": "PHP Client for Ollama API",
+    "keywords": ["ollama", "api", "client", "saloon"],
     "type": "library",
     "license": "MIT",
     "require": {
