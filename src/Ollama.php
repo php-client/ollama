@@ -8,12 +8,21 @@ use PhpClient\Ollama\Resources\Api;
 use Saloon\Http\Connector;
 use Saloon\Traits\Plugins\HasTimeout;
 
+/**
+ * PHP Client for Ollama API.
+ *
+ * @see https://github.com/ollama/ollama/blob/main/docs/api.md
+ * @version Relevant for 2025-02-11, Ollama v0.5.1
+ */
 final class Ollama extends Connector
 {
     use HasTimeout;
 
     public readonly Api $api;
 
+    /**
+     * @param  string  $baseUrl  The base URL of the Ollama server
+     */
     public function __construct(
         private readonly string $baseUrl,
     ) {
