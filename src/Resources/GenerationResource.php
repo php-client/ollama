@@ -79,7 +79,8 @@ final class GenerationResource extends BaseResource
      */
     public function generateEmbeddings(
         string $model,
-        string $prompt,
+        string|array $prompt,
+        null|bool $truncate = null,
         null|array|ModelParameters $options = null,
         null|string $keepAlive = null,
     ): Response {
@@ -87,6 +88,7 @@ final class GenerationResource extends BaseResource
             request: new GenerateEmbeddingsRequest(
                 model: $model,
                 prompt: $prompt,
+                truncate: $truncate,
                 options: $options,
                 keepAlive: $keepAlive,
             ),

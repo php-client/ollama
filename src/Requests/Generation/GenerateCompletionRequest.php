@@ -8,7 +8,6 @@ use PhpClient\Ollama\Contracts\ModelParameters;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
-
 use Saloon\Traits\Body\HasJsonBody;
 
 use function array_filter;

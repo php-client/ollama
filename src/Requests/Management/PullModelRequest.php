@@ -9,6 +9,8 @@ use Saloon\Enums\Method;
 use Saloon\Http\Request;
 use Saloon\Traits\Body\HasJsonBody;
 
+use function array_filter;
+
 final class PullModelRequest extends Request implements HasBody
 {
     use HasJsonBody;
@@ -17,6 +19,8 @@ final class PullModelRequest extends Request implements HasBody
 
     public function __construct(
         public readonly string $model,
+        public readonly null|bool $insecure = null,
+        public readonly null|bool $stream = null,
     ) {}
 
     public function resolveEndpoint(): string
@@ -26,8 +30,13 @@ final class PullModelRequest extends Request implements HasBody
 
     protected function defaultBody(): array
     {
-        return [
-            'model' => $this->model,
-        ];
+        return array_filter(
+            array: [
+                'model' => $this->model,
+                'insecure' => $this->insecure,
+                'stream' => $this->stream,
+            ],
+            callback: static fn(mixed $value): bool => $value !== null,
+        );
     }
 }

@@ -21,7 +21,8 @@ final class GenerateEmbeddingsRequest extends Request implements HasBody
 
     public function __construct(
         public readonly string $model,
-        public readonly string $prompt,
+        public readonly string|array $prompt,
+        public readonly null|bool $truncate = null,
         public readonly null|array|ModelParameters $options = null,
         public readonly null|string $keepAlive = null,
     ) {}
@@ -37,6 +38,7 @@ final class GenerateEmbeddingsRequest extends Request implements HasBody
             array: [
                 'model' => $this->model,
                 'prompt' => $this->prompt,
+                'truncate' => $this->truncate,
                 'options' => $this->options instanceof ModelParameters
                     ? $this->options->toArray()
                     : $this->options,

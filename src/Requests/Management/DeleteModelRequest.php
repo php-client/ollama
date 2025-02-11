@@ -16,7 +16,7 @@ final class DeleteModelRequest extends Request implements HasBody
     protected Method $method = Method::DELETE;
 
     public function __construct(
-        public readonly string $model
+        public readonly string $model,
     ) {}
 
     public function resolveEndpoint(): string
@@ -27,7 +27,7 @@ final class DeleteModelRequest extends Request implements HasBody
     protected function defaultBody(): array
     {
         return [
-            'model' => $this->model
+            'model' => $this->model,
         ];
     }
 }

@@ -31,7 +31,7 @@ final class CreateModelRequest extends Request implements HasBody
         public readonly null|bool $stream = null,
         public readonly null|string|QuantizationType $quantize = null,
 
-    ) { }
+    ) {}
 
     public function resolveEndpoint(): string
     {
@@ -53,7 +53,7 @@ final class CreateModelRequest extends Request implements HasBody
                     ? $this->parameters->toArray()
                     : $this->parameters,
                 'messages' => !$this->messages instanceof ChatMessages
-                    ? new ChatMessages(messages: $this->messages)->toArray()
+                    ? (new ChatMessages(messages: $this->messages))->toArray()
                     : $this->messages,
                 'stream' => $this->stream,
                 'quantize' => $this->quantize instanceof QuantizationType

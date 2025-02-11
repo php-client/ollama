@@ -130,11 +130,13 @@ final class ManagementResource extends BaseResource
     /**
      * @throws FatalRequestException|RequestException
      */
-    public function pullModel(string $model): Response
+    public function pullModel(string $model, null|bool $insecure = null, null|bool $stream = null): Response
     {
         return $this->connector->send(
             request: new PullModelRequest(
                 model: $model,
+                insecure: $insecure,
+                stream: $stream,
             ),
         );
     }
