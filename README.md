@@ -27,7 +27,30 @@ $response = $ollama->generation()->completions([
 echo $response->json('response');
 ```
 
-TODO: Add more usage instructions for other endpoints...
+More information available in comments and PhpDocs in the code.
+
+Also please check the official [Ollama API docs](https://github.com/ollama/ollama/blob/main/docs/api.md).
+
+## List of available API actions
+
+- Generation
+  - Generate completions
+  - Generate chat completions
+  - Generate embeddings
+- Management
+  - Show model information
+  - Load model
+  - Unload model
+  - List local models
+  - List running models
+  - Check blob exists
+  - Copy model
+  - Create model
+  - Pull model
+  - Push model
+  - Delete model
+- Version
+
 
 ## License
 
