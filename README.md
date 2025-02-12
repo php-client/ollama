@@ -17,7 +17,7 @@ use PhpClient\Ollama\Ollama;
 
 $ollama = new Ollama('http://localhost:11434');
 
-$response = $ollama->generation()->completions([
+$response = $ollama->generation()->generateCompletion([
     'model' => 'llama3.2:latest',
     'prompt' => 'Hello!',
     // Wait for end of generation before getting response:
