@@ -20,6 +20,8 @@ final class Ollama extends Connector
 
     public readonly Api $api;
 
+    public readonly float $requestTimeout;
+
     /**
      * @param  string  $baseUrl  The base URL of the Ollama server
      */
@@ -27,6 +29,7 @@ final class Ollama extends Connector
         private readonly string $baseUrl,
     ) {
         $this->api = new Api(connector: $this);
+        $this->requestTimeout = 300.0;
     }
 
     public function resolveBaseUrl(): string
