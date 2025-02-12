@@ -38,17 +38,13 @@ Also please check the official [Ollama API docs](https://github.com/ollama/ollam
   - Generate chat completions
   - Generate embeddings
 - Management
-  - Show model information
-  - Load model
-  - Unload model
   - List local models
   - List running models
+  - Show model information
+  - Load|Unload model
+  - Pull|Push model
+  - Create|Copy|Delete model
   - Check blob exists
-  - Copy model
-  - Create model
-  - Pull model
-  - Push model
-  - Delete model
 - Version
 
 
